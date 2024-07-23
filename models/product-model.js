@@ -1,4 +1,3 @@
-const { name } = require("ejs");
 const mongoose = require("mongoose")
 const postSchema = mongoose.Schema({
    image:String,
@@ -13,4 +12,4 @@ const postSchema = mongoose.Schema({
    textcolor:String,
 });
 
-module,exports = mongoose.model("products",postSchema)
+module.exports = mongoose.model("products",postSchema)
