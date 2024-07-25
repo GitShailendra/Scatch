@@ -1,6 +1,6 @@
 const mongoose = require("mongoose")
 const postSchema = mongoose.Schema({
-   image:String,
+   image:Buffer,
    name:String,
    price:Number,
    discount:{
