@@ -1,9 +1,11 @@
 const express = require("express")
 const router = express.Router();
 const ownerModel = require("../models/owner-model");
+const isAdmin = require("../middlewares/isAdmin")
 
-
-
+router.get("/",isAdmin,function(req,res){
+  res.send("hey i am a admin")
+})
 if(process.env.NODE_ENV==="development"){
     router.post("/create", async function(req,res){
       //fullname 
@@ -19,7 +21,7 @@ if(process.env.NODE_ENV==="development"){
           email:email,
           password:password
         })
-        res.status(500).send(createOwner);
+        res.send(createOwner);
       
     })
 }

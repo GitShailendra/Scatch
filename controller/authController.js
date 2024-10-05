@@ -17,13 +17,16 @@ module.exports.registerUser = async function(req,res){
                 if(err) return res.send(err.message)
                 else{
                     const user=await userModel.create({
+                        
                         fullname,
                         email,
                         password:hash,
+                        
                     })
+                    req.flash("success","user created you can login now");
                     let token = generateToken(user);
                     res.cookie("token",token)
-                    res.render("shop")
+                     return res.redirect("/")
                 }
             })
         })
